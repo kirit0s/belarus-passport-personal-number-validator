@@ -1,0 +1,43 @@
+{
+  "name": "belarus-personal-number-validator",
+  "version": "1.0.0",
+  "description": "Validator for belarussian passport personal number",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src/**/*"
+  ],
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirit0s/belarus-passport-personal-number-validator.git"
+  },
+  "keywords": [
+    "belarus",
+    "passport",
+    "personal",
+    "number",
+    "validator",
+    "identity",
+    "number"
+  ],
+  "author": "Kirill Hmelnitski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirit0s/belarus-passport-personal-number-validator/issues"
+  },
+  "homepage": "https://github.com/kirit0s/belarus-passport-personal-number-validator#readme",
+  "devDependencies": {
+    "ava": "^1.0.1",
+    "prettier": "^1.16.1",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.4"
+  }
+}
