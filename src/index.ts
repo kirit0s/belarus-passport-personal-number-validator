@@ -29,53 +29,28 @@ function getCalculatedControlNumber(personalNumber: string) {
   );
 }
 
-type ErrorBehavior = 'boolean' | 'error' | 'throwError';
-
-interface IConfig {
-  errorBehavior: ErrorBehavior;
-}
-
-const defaultConfig: IConfig = {
-  errorBehavior: 'boolean',
-};
-
-// function checkConfig(config: IConfig) {
-//   const errorBehaviorParams = Object.values(ErrorBehavior);
-//   const checkErrorBehavior = errorBehaviorParams.includes(config.errorBehavior);
-//   if (checkErrorBehavior === false) {
-//     throw new Error(
-//       `errorBehavior must contain one of [${errorBehaviorParams.join(', ')}]`
-//     );
-//   }
-// }
-
 function compareControlNumbers(x: number, y: number): boolean | never {
   if (x !== y) {
-    throw new Error('control numbers are not equal');
+    throw new Error('Control numbers are not equal');
   }
   return true;
 }
 
-export default (
-  personalNumber: string,
-  config: IConfig = defaultConfig
-): any => {
-  // checkConfig(config);
-
+export default (personalNumber: string): any => {
   try {
     checkValidSymbols(personalNumber);
-    return compareControlNumbers(
+    const valid = compareControlNumbers(
       getCalculatedControlNumber(personalNumber),
       +personalNumber.slice(-1)
     );
+    return {
+      error: null,
+      valid,
+    };
   } catch (err) {
-    const { errorBehavior } = config;
-    if (errorBehavior === 'boolean') {
-      return false;
-    }
-    if (errorBehavior === 'error') {
-      return err;
-    }
-    throw err;
+    return {
+      error: err.message,
+      valid: false,
+    };
   }
 };
