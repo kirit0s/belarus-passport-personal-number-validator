@@ -12,20 +12,19 @@ function checkValidSymbols(symbols: string) {
   }
 }
 
-function getCalculatedControlNumber(personalNumber: string) {
-  function getСonvertedNumber(char: string, index: number) {
-    const neededNumber = Number.isInteger(+char)
+function getCalculatedControlNumber(personalNumber: string): number {
+  function getEncodedNumber(char: string, index: number): number {
+    const encodedNumber = Number.isInteger(+char)
       ? +char
       : char.charCodeAt(0) - 65 + 10;
-    return neededNumber * [7, 3, 1][index % 3];
+    return encodedNumber * [7, 3, 1][index % 3];
   }
-  const withoutLast = (x: string) => x.slice(0, -1);
-  const sum = (x: number, y: number) => x + y;
 
   return (
-    Array.from(withoutLast(personalNumber))
-      .map(getСonvertedNumber)
-      .reduce(sum) % 10
+    Array.from(personalNumber.slice(0, -1)).reduce(
+      (accum, curr, index) => accum + getEncodedNumber(curr, index),
+      0
+    ) % 10
   );
 }
 
@@ -36,7 +35,12 @@ function compareControlNumbers(x: number, y: number): boolean | never {
   return true;
 }
 
-export default (personalNumber: string): any => {
+export function validate(
+  personalNumber: string
+): {
+  error: string | null;
+  valid: boolean;
+} {
   try {
     checkValidSymbols(personalNumber);
     const valid = compareControlNumbers(
@@ -53,4 +57,4 @@ export default (personalNumber: string): any => {
       valid: false,
     };
   }
-};
+}
