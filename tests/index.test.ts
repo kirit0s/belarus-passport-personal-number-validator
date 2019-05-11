@@ -1,38 +1,38 @@
 import test from 'ava';
-import isPersonalNumberValid from '../src/index';
+import { validate } from '../src/index';
 
 test('check valid personal number v1', t => {
-  const result = isPersonalNumberValid('3270287A012PB2');
+  const result = validate('3270287A012PB2');
   t.true(result.valid);
   t.is(result.error, null);
 });
 
 test('check valid personal number v2', t => {
-  const result = isPersonalNumberValid('3041088A042PB2');
+  const result = validate('3041088A042PB2');
   t.true(result.valid);
   t.is(result.error, null);
 });
 
 test('check invalid control number in personal number', t => {
-  const result = isPersonalNumberValid('3270287A012PB3');
+  const result = validate('3270287A012PB3');
   t.false(result.valid);
   t.is(result.error, 'Control numbers are not equal');
 });
 
 test('check invalid type in personal number', t => {
-  const result = isPersonalNumberValid(123 as any);
+  const result = validate(123 as any);
   t.false(result.valid);
   t.is(result.error, 'Personal number must be string');
 });
 
 test('check invalid length in personal number', t => {
-  const result = isPersonalNumberValid('3270287A012PB31');
+  const result = validate('3270287A012PB31');
   t.false(result.valid);
   t.is(result.error, 'Personal number must contain 14 symbols');
 });
 
 test('check invalid symbols in personal number', t => {
-  const result = isPersonalNumberValid('3270287А012РВ3');
+  const result = validate('3270287А012РВ3');
   t.false(result.valid);
   t.is(
     result.error,
