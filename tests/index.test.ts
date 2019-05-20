@@ -13,6 +13,12 @@ test('check valid personal number v2', t => {
   t.is(result.error, null);
 });
 
+test('check valid personal number v3', t => {
+  const result = validate('0000000A000PB2');
+  t.true(result.valid);
+  t.is(result.error, null);
+});
+
 test('check invalid control number in personal number', t => {
   const result = validate('3270287A012PB3');
   t.false(result.valid);
