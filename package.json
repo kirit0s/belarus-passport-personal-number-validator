@@ -10,8 +10,10 @@
   "scripts": {
     "build": "tsc",
     "test": "ava",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test"
+    "preversion": "npm test",
+    "version": "npm build",
+    "postversion": "npm publish",
+    "postpublish": "git push origin --all; git push origin --tags"
   },
   "repository": {
     "type": "git",
