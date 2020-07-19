@@ -1,5 +1,5 @@
 module.exports = w => ({
-  files: ['src/*.ts', 'dist/*.js'],
+  files: ['src/**/*.ts'],
   tests: ['tests/*.test.ts'],
   env: {
     type: 'node',
