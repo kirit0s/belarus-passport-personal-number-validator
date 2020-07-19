@@ -1,3 +1,5 @@
+![npm version](https://badgen.net/npm/v/belarus-personal-number-validator)
+
 # Belarus personal number validator
 
 Validator for personal number in passport of Belarus.
