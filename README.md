@@ -1,4 +1,4 @@
-![npm version](https://badgen.net/npm/v/belarus-personal-number-validator)
+<a href="https://www.npmjs.com/package/belarus-personal-number-validator"><img src="https://badgen.net/npm/v/belarus-personal-number-validator" alt="NPM Version" /></a>
 
 # Belarus personal number validator
 
