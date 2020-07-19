@@ -34,11 +34,11 @@
   },
   "homepage": "https://github.com/kirit0s/belarus-passport-personal-number-validator#readme",
   "devDependencies": {
-    "ava": "^1.0.1",
-    "prettier": "^1.16.1",
-    "ts-node": "^8.1.0",
-    "tslint": "^5.12.1",
-    "tslint-config-prettier": "^1.17.0",
-    "typescript": "^3.2.4"
+    "ava": "^1.4.1",
+    "prettier": "^1.19.1",
+    "ts-node": "^8.10.2",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.7"
   }
 }
