@@ -1,4 +1,4 @@
-function checkValidSymbols(symbols: string) {
+function checkValidSymbols(symbols: string): void | never {
   if (typeof symbols !== 'string') {
     throw new Error('Personal number must be string');
   }
@@ -28,7 +28,7 @@ function getCalculatedControlNumber(personalNumber: string): number {
   );
 }
 
-function compareControlNumbers(x: number, y: number): boolean | never {
+function compareControlNumbers(x: number, y: number): true | never {
   if (x !== y) {
     throw new Error('Control numbers are not equal');
   }
@@ -37,10 +37,7 @@ function compareControlNumbers(x: number, y: number): boolean | never {
 
 export function validate(
   personalNumber: string
-): {
-  error: string | null;
-  valid: boolean;
-} {
+): { error: string; valid: false } | { error: null; valid: true } {
   try {
     checkValidSymbols(personalNumber);
     const valid = compareControlNumbers(
