@@ -29,7 +29,7 @@
     "identity number"
   ],
   "author": "Kirill Hmelnitski",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kirit0s/belarus-passport-personal-number-validator/issues"
   },
