@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   files: ['tests/**/*'],
   verbose: true,
   extensions: ['ts'],
